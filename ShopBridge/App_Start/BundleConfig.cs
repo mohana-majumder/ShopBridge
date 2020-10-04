@@ -22,9 +22,28 @@ namespace ShopBridge
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/Scripts/JqueryTable/TableScript").Include(
+                        //"~/Scripts/JqueryTable/jquery.dataTables-1.10.5.js"
+                        "~/Scripts/JqueryTable/jquery.dataTables-1.10.12.js",
+                        "~/Scripts/JqueryTable/jquery.dataTables.buttons.js"
+                        //"~/Scripts/JqueryTable/jquery.buttons.flash.js",
+                        //"~/Scripts/JqueryTable/jquery.pdfmake.js",
+                        //"~/Scripts/JqueryTable/jquery.jszip.js",
+                        //"~/Scripts/JqueryTable/jquery.buttons.print.js",
+                        //"~/Scripts/JqueryTable/jquery.buttons.html5.js"
+                        ));
+
+            bundles.Add(new StyleBundle("~/Content/TableStyle").Include(
+                        "~/Content/JqueryTable/jquery.dataTables.css"
+
+                        //"~/Content/JqueryTable/jquery.dataTables-1.10.12.css"
+                        ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                        "~/Content/Style.css"
+                      //"~/Content/site.css"
+                      ));
         }
     }
 }

@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Item List";
+}
+
+<div class="pageHd clearfix">
+    <h3>Item List</h3>
+</div>
+
+@using (Html.BeginForm("ItemList", "Item", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="scrollTableCvr">
+        <div class="pageCtn userManeg">
+
+            <div class="pgCtrlSearch clearfix">
+
+                <div class="row">
+                    <div class="col-sm-2 text-center">
+                        <input class="uploadImg" id="imgFile" type='file' onchange="readImg(this);" style="display:none;" />
+                        <img class="displayImg" id="imgDisplay" src="@Url.Content("~/images/UploadImage.PNG")" alt="Upload Product Image" onclick="TriggerFileImg()" />
+                        <input type="hidden" id="hidImage" value="" />
+                    </div>
+                    <div class="col-sm-3 text-center addItem">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control" type="text" id="ItemName" name="ItemName" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-center addItem">
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="number" id="Price" name="Price" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 text-center addItem">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" id="ItemDescription" name="ItemDescription"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 text-center addItem" style="padding-top: 60px;">
+                        <button id="btnAddItem" type="button" class="btn btn-info" name="Search" value="Search" onclick='AddItemDetails();'>Add </button>
+                    </div>
+                </div>
+            </div>
+
+            @* ########### Display All Product ############## *@
+            <div class="container">
+                <h2>Product List</h2>
+                @*@foreach (var item in Model)
+            {
+                double price = Convert.ToInt32(@item.Price);
+                <div class="col-md-3" style="margin-bottom:25px">
+                    <div class="thumbnail">
+                        <div class="img-responsive" style="margin-bottom:20px">
+                            <img src="~/AppFile/Images/@item.PicUrl" height="350" width="240" />
+                        </div>
+                        <div class="caption" style="border-top:3px solid #808080">
+                            <h4><a href="#">@item.ProductName</a></h4>
+                            <h3>@price.ToString("F2")$</h3>
+                        </div>
+                    </div>
+                </div>
+            }*@
+                <div id="divProductList">
+                    <div class="col-md-3" style="margin-bottom:25px">
+                        <div class="thumbnail">
+                            <div class="img-responsive text-center" style="margin-bottom:20px">
+                                <img src="~/images/NoImage.PNG" height="150" width="180" />
+                            </div>
+                            <div class="caption" style="border-top:3px solid #808080">
+                                <h4><a href="#">ProductName</a></h4>
+                                <h3>32.12</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="margin-bottom:25px">
+                        <div class="thumbnail">
+                            <div class="img-responsive text-center" style="margin-bottom:20px">
+                                <img src="~/UploadedFiles/ef10c8f3-acba-4c62-8b8d-f18f8cfc8a1f.jpeg" height="150" width="180" />
+                            </div>
+                            <div class="caption" style="border-top:3px solid #808080">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <h4><a href="#">ProductName</a></h4>
+                                        <h3>32.12</h3>
+                                    </div>
+                                    <div class="col-sm-4 text-left">
+                                        <button>Delete</button>
+                                    </div>
+                                </div>
+                                @*<h4><a href="#">ProductName</a></h4>
+                                <h3>32.12</h3>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            @*<%---------- Message ---------Start----------%>*@
+            <div id="dvdanger" class="alertMstPosition" style="display:none">
+                <div class="alert alert-danger alert-dismissable fade in">
+                    <div id="dangerMsg"><strong>Danger!</strong> Indicates a unsuccessful or negative action.</div>
+                </div>
+            </div>
+            <div id="dvsuccess" class="alertMstPosition" style="display:none">
+                <div class="alert alert-success alert-dismissable fade in">
+                    <div id="successMsg"><strong>Success!</strong> Indicates a successful or positive action.</div>
+                </div>
+            </div>
+            @*<%---------- Message ---------End------------%>*@
+
+        </div>
+    </div>
+
+}
+
