@@ -1,0 +1,76 @@
+﻿@model ShopBridge.Models.Item
+
+@{
+    ViewBag.Title = "Item Details";
+}
+
+<div class="scrollTableCvr">
+    <div class="pageCtn userManeg">
+
+        <div class="pgCtrlSearch clearfix">
+
+            <div class="pageHd clearfix" style="padding-top: 50px;">
+                <h3>Product Details</h3>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 text-center" style="padding:50px">
+                    @if (Model.ItemImage == null || Model.ItemImage == "")
+                    {
+                        <img class="ImgDisplay" id="imgDisplay" src="@Url.Content("~/images/NoImage.PNG")" alt="Product Image" />
+                    }
+                    else
+                    {
+                        <img class="ImgDisplay" id="imgDisplay" src="@Url.Content("~/UploadedFiles/" + Model.ItemImage)" alt="Product Image" />
+                    }
+                </div>
+
+
+                <div class="col-sm-8" style="padding:50px">
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+                            <div class="form-group">
+                                <label style="font-size: 18px;">Name</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <span style="font-size: 18px;">@Model.ItemName </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+                            <div class="form-group">
+                                <label style="font-size: 18px;">Price</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <span style="font-size: 18px;">@Model.ItemPrice </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2 text-right">
+                            <div class="form-group">
+                                <label style="font-size: 18px;">Description</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <span style="font-size: 18px;">@Model.ItemDescription </span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+</div>
