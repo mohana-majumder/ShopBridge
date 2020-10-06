@@ -10,7 +10,7 @@ namespace ShopBridge.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("ItemList", "Item");
         }
 
         public ActionResult About()
